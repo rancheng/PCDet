@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# Define data exchange folde
-EXCHANGE="/home/bt"
-
 docker run -it \
-        --runtime=nvidia \
+        --gpus=all \
         --net=host \
         --privileged=true \
         --ipc=host \
@@ -13,5 +10,6 @@ docker run -it \
         --env="QT_X11_NO_MITSHM=1" \
 	--hostname="inside-DOCKER" \
 	--name="pcdet" \
-        -v $EXCHANGE:/root/exchange \
+        -v $(pwd):/pcdet \
+        -v /data/dataset/kitti:/data/dataset/kitti \
 	pcdet-docker bash

@@ -43,7 +43,11 @@ def eval_one_epoch(model, dataloader, epoch_id, logger, save_to_file=False, resu
     start_time = time.time()
     for i, data in enumerate(dataloader):
         input_dict = example_convert_to_torch(data)
+        #print('input_dict', input_dict.keys()) #['gt_boxes', 'voxels', 'num_points', 'coordinates', 'voxel_centers', 'calib', 'points', 'sample_idx', 'image_shape', 'batch_size']
+        print('input_dict', input_dict)
         pred_dicts, ret_dict = model(input_dict)
+        print('pred_dicts', pred_dicts)
+        print('ret_dict', ret_dict)
         disp_dict = {}
 
         statistics_info(ret_dict, metric, disp_dict)
