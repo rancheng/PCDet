@@ -4,3 +4,9 @@ venv/
 *.idea/
 *.so
 data/
+log.txt
+output
+build
+pcdet.egg-info/
+pcdet/version.py
+tools/*.pth

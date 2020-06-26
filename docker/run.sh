@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker rm /pcdet
+
 docker run -it \
         --gpus=all \
         --net=host \
